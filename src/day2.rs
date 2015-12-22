@@ -1,9 +1,8 @@
+use std::io::{self,BufRead};
 
-
-
-fn calculate_paper_needed(length: &i32, width: &i32, height: &i32) -> i32 {
-    let surface_area = 2*(length*width + width*height + height*length);
-    let mut v = [length,width,height];
+fn calculate_paper_needed(v: &mut Vec<i32>) -> i32 {
+    let surface_area = 2*(v[0]*v[1] + v[1]*v[2] + v[2]*v[0]);
+    //println!("{}",surface_area);
     v.sort();
     let additional_area = v[0]*v[1];
     return surface_area + additional_area;
@@ -12,6 +11,13 @@ fn calculate_paper_needed(length: &i32, width: &i32, height: &i32) -> i32 {
 
 
 pub fn run(){
-    let paper_needed = calculate_paper_needed(&1,&2,&1);
+    let stdin =  io::stdin();
+    let mut paper_needed=0;
+    for line in stdin.lock().lines(){
+        //println!("{}",line);
+        let input = line.unwrap();
+        let mut in_line:Vec<_> = input.split("x").map(|x| x.parse::<i32>().unwrap()).collect();
+        paper_needed += calculate_paper_needed(&mut in_line);
+    }
     println!("{}",paper_needed);
 }
