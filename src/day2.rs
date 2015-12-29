@@ -1,3 +1,6 @@
+#[allow(non_snake_case)]
+#[allow(dead_code)]
+
 use std::io::{self,BufRead};
 
 fn calculate_paper_needed(v: &mut Vec<i32>) -> i32 {

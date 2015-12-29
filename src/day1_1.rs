@@ -1,3 +1,6 @@
+#[allow(non_snake_case)]
+#[allow(dead_code)]
+
 use std::io;
 use std::io::prelude::*;
 
@@ -28,7 +31,7 @@ pub fn run() {
                 panic!("{}{}","for unexpected char:",c);
             }
         }
-        if (counter < 0 && first){
+        if counter < 0 && first{
             first = false;
             println!("basement position: {}", position);
         }

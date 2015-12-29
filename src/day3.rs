@@ -1,3 +1,6 @@
+#[allow(non_snake_case)]
+#[allow(dead_code)]
+
 use std::io::{self,BufRead};
 use std::collections::*;
 
