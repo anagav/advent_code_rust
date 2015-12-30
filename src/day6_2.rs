@@ -5,7 +5,7 @@ fn turn_on_lights(array:&mut Vec<Vec<i32>>, start_x:&usize,start_y:&usize,end_x:
     for i in *start_x..*end_x{
         for j in *start_y..*end_y{
             //println!("{:?}", array[i]);
-            array[i][j]=1;
+            array[i][j]+=1;
         }
     }
 }
@@ -13,7 +13,10 @@ fn turn_on_lights(array:&mut Vec<Vec<i32>>, start_x:&usize,start_y:&usize,end_x:
 fn turn_off_lights(array:&mut Vec<Vec<i32>>, start_x:&usize,start_y:&usize,end_x:&usize,end_y:&usize){
     for i in *start_x..*end_x{
         for j in *start_y..*end_y{
-            array[i][j]=0;
+            array[i][j]-=1;
+            if array[i][j]<0{
+                array[i][j]=0;
+            }
         }
     }
 }
@@ -21,12 +24,7 @@ fn turn_off_lights(array:&mut Vec<Vec<i32>>, start_x:&usize,start_y:&usize,end_x
 fn toggle_lights(array:&mut Vec<Vec<i32>>, start_x:&usize,start_y:&usize,end_x:&usize,end_y:&usize){
     for i in *start_x..*end_x{
         for j in *start_y..*end_y{
-            if array[i][j]==0{
-                array[i][j]=1;
-            }
-            else {
-                array[i][j]=0;
-            }
+            array[i][j]+=2;
         }
     }
 }
@@ -73,9 +71,7 @@ fn count_num_lights_on(array:&Vec<Vec<i32>>) -> i32{
     let mut count =0;
     for vector in array{
         for num in vector{
-            if *num==1{
-                count+=1;
-            }
+            count+=*num;
         }
     }
     return count;
