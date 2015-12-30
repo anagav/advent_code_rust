@@ -70,3 +70,7 @@ pub fn run(){
         println!("{}", counter.len());
     }
 }
+
+fn main() {
+    run();
+}

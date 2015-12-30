@@ -29,3 +29,7 @@ pub fn run() {
 
     println!("counter: {:?} \nbasement: {:?}", count,basement.unwrap_or_else(|| 0));
 }
+
+fn main() {
+    run();
+}

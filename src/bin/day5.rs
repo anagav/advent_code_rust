@@ -69,3 +69,7 @@ pub fn run(){
     println!("{}",count);
 
 }
+
+fn main() {
+    run();
+}
