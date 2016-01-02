@@ -8,11 +8,8 @@ use std::io::prelude::*;
 pub fn run() {
     //let mut map = HashMap::new();
     let mut input = String::new();
-    let mut counter =0;
 
     io::stdin().read_line(&mut input).unwrap();
-    let mut position = 0;
-    let mut first = true;
 
     let (count,basement) = input.trim().chars().map(
         |x| match x{
@@ -27,7 +24,11 @@ pub fn run() {
         }
     );
 
-    println!("counter: {:?} \nbasement: {:?}", count,basement.unwrap_or_else(|| 0));
+    println!("counter: {:?} \nbasement: {:?}", count,basement.unwrap_or_else(
+        ||{
+                0
+        })
+    );
 }
 
 fn main() {
