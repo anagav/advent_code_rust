@@ -23,7 +23,7 @@ pub fn run(){
             line.split("x").map(|num| num.parse::<i32>().unwrap()).collect::<Vec<i32>>()
         }
     ).filter_map(
-        |mut vector|{
+        |mut vector| {
             Some((calculate_paper_needed(&mut vector),ribbon_feed(&vector)))
         }
     ).fold((0,0),|(sum,sum2),(element,element2)|{
